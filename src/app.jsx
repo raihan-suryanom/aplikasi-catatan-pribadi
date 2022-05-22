@@ -1,21 +1,20 @@
 import { useState } from "react";
-import { FormInput, Input, SectionNotes } from "./components";
+import { FormInput, Header, SectionNotes } from "./components";
 import style from "./styles/app.module.css";
 import { getInitialData } from "./utils";
 
 function App() {
-  const [notes] = useState(getInitialData());
+  const [query, setQuery] = useState("");
+  const [activeNotes, setActiveNotes] = useState(getInitialData());
+  const [archivedNotes, setArchivedNotes] = useState([]);
 
   return (
     <>
-      <header className={style.container}>
-        <h1 className={style.heading}>Rey&apos;s Note</h1>
-        <Input type='search' id='search_notes' name='search_notes' placeholder='Find notes...' />
-      </header>
+      <Header search={query} updateQuery={setQuery} />
       <main className={style.main}>
-        <FormInput />
-        <SectionNotes label='Active Notes' notes={notes} />
-        <SectionNotes label='Archived Notes' />
+        <FormInput updateNotes={setActiveNotes} />
+        <SectionNotes label='Active Notes' notes={activeNotes} updateNotes={setArchivedNotes} />
+        <SectionNotes label='Archived Notes' notes={archivedNotes} />
       </main>
     </>
   );

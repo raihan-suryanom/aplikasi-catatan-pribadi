@@ -1,16 +1,33 @@
 import style from "../styles/input.module.css";
 
 const Input = (attributes) => {
+  const changeHandler = (event) => {
+    if (attributes.name === "title") {
+      const currentText = event.target.value;
+      attributes.onChange((oldText) => (currentText.length <= 50 ? currentText : oldText));
+    } else {
+      attributes.onChange(event.target.value);
+    }
+  };
+
   return (
     <>
       {attributes.type === "textarea" ? (
         <textarea
-          className={`${style.input} ${style.textarea}`}
-          spellCheck={false}
           {...attributes}
+          className={`${style.input} ${style.textarea}`}
+          value={attributes.value}
+          spellCheck={false}
+          onChange={changeHandler}
         />
       ) : (
-        <input className={style.input} spellCheck={false} {...attributes} />
+        <input
+          {...attributes}
+          className={style.input}
+          spellCheck={false}
+          value={attributes.value}
+          onChange={changeHandler}
+        />
       )}
     </>
   );

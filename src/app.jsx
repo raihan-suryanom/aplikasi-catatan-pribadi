@@ -13,8 +13,8 @@ function App() {
       <Header search={query} updateQuery={setQuery} />
       <main className={style.main}>
         <FormInput updateNotes={setActiveNotes} />
-        <SectionNotes label='Active Notes' notes={activeNotes} updateNotes={setArchivedNotes} />
-        <SectionNotes label='Archived Notes' notes={archivedNotes} />
+        <SectionNotes label='Active Notes' notes={activeNotes} updateNotes={setActiveNotes} />
+        <SectionNotes label='Archived Notes' notes={archivedNotes} updateNotes={setArchivedNotes} />
       </main>
     </>
   );

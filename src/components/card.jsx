@@ -2,6 +2,8 @@ import style from "../styles/card.module.css";
 import Button from "./button";
 
 const Card = ({ id, title, createdAt, body, action }) => {
+  const deleteNote = (item) => action((notes) => notes.filter((note) => note.id !== item));
+
   return (
     <article id={id} className={style.card}>
       <header className={style.card_header}>
@@ -10,7 +12,7 @@ const Card = ({ id, title, createdAt, body, action }) => {
         <p className={style.note}>{body}</p>
       </header>
       <footer className={style.card_footer}>
-        <Button eventHandler={action} label='delete' />
+        <Button eventHandler={() => deleteNote(id)} label='delete' />
         <Button eventHandler={action} label='archive' />
       </footer>
     </article>

@@ -1,0 +1,23 @@
+.input {
+  border: 1px solid var(--primary);
+  background-color: transparent;
+  outline: none;
+  border-radius: 0.4rem;
+  color: var(--primary);
+  padding: 0.7rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  min-width: 340px;
+}
+
+.input::placeholder {
+  color: white;
+}
+
+.input[type="submit"] {
+  cursor: pointer;
+}
+
+.textarea {
+  height: 10rem;
+}

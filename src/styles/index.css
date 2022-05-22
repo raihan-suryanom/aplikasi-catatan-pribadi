@@ -1,3 +1,8 @@
+:root {
+  --primary: #ffe227;
+  --dark: #121013;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -6,11 +11,11 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background-color: #202124;
-  color: white;
+  background-color: var(--dark);
+  color: var(--primary);
 }
 
-input,
+/* input,
 textarea {
   padding: 12px;
   margin: 12px 0;
@@ -188,4 +193,4 @@ textarea::placeholder {
   .notes-list {
     grid-template-columns: repeat(4, 1fr);
   }
-}
+} */

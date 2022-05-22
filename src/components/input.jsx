@@ -4,9 +4,13 @@ const Input = (attributes) => {
   return (
     <>
       {attributes.type === "textarea" ? (
-        <textarea className={`${style.input} ${style.textarea}`} {...attributes} />
+        <textarea
+          className={`${style.input} ${style.textarea}`}
+          spellCheck={false}
+          {...attributes}
+        />
       ) : (
-        <input className={style.input} {...attributes} />
+        <input className={style.input} spellCheck={false} {...attributes} />
       )}
     </>
   );

@@ -15,4 +15,10 @@
 .small {
   text-align: right;
   opacity: 0.9;
+  color: var(--light);
+}
+
+.counter {
+  color: var(--primary);
+  font-weight: 700;
 }

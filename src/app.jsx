@@ -5,16 +5,18 @@ import { getInitialData } from "./utils";
 
 function App() {
   const [query, setQuery] = useState("");
-  const [activeNotes, setActiveNotes] = useState(getInitialData());
-  const [archivedNotes, setArchivedNotes] = useState([]);
+  const [notes, setNotes] = useState(getInitialData());
+
+  const activeNotes = notes.filter((note) => !note.archived);
+  const archivedNotes = notes.filter((note) => note.archived);
 
   return (
     <>
       <Header search={query} updateQuery={setQuery} />
       <main className={style.main}>
-        <FormInput updateNotes={setActiveNotes} />
-        <SectionNotes label='Active Notes' notes={activeNotes} updateNotes={setActiveNotes} />
-        <SectionNotes label='Archived Notes' notes={archivedNotes} updateNotes={setArchivedNotes} />
+        <FormInput updateNotes={setNotes} />
+        <SectionNotes label='Active Notes' notes={activeNotes} setNotes={setNotes} />
+        <SectionNotes label='Archived Notes' notes={archivedNotes} setNotes={setNotes} />
       </main>
     </>
   );

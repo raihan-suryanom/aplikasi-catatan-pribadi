@@ -10,7 +10,10 @@ const FormInput = ({ updateNotes }) => {
     event.preventDefault();
     const timestamp = new Date().toISOString();
 
-    updateNotes((notes) => [...notes, { id: timestamp, title, body: note, createdAt: timestamp }]);
+    updateNotes((notes) => [
+      ...notes,
+      { id: timestamp, title, body: note, archived: false, createdAt: timestamp },
+    ]);
   };
 
   return (

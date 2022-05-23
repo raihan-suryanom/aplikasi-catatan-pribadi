@@ -14,7 +14,8 @@
   color: #fd5d5d;
 }
 
-.button[data-action="archive"] {
+.button[data-action="archive"],
+.button[data-action="unarchived"] {
   color: #49ff00;
 }
 
@@ -23,7 +24,8 @@
   background-color: #fd5d5d;
 }
 
-.button[data-action="archive"]:hover {
+.button[data-action="archive"]:hover,
+.button[data-action="unarchived"]:hover {
   color: var(--dark);
   background-color: #49ff00;
 }
